@@ -415,7 +415,8 @@ RUN chown root:root /sandbox/.nemoclaw \
     && touch /sandbox/.nemoclaw/config.json \
     && chown sandbox:sandbox /sandbox/.nemoclaw/config.json
 RUN chown sandbox:sandbox /sandbox/.bashrc /sandbox/.profile \
-    && chmod 644 /sandbox/.bashrc /sandbox/.profile
+    && chmod 644 /sandbox/.bashrc /sandbox/.profile \
+    && touch /sandbox/.bashrc /sandbox/.profile
 # Entrypoint runs as root to start the gateway as the gateway user,
 # then drops to sandbox for agent commands. See nemoclaw-start.sh.
 ENTRYPOINT ["/usr/local/bin/nemoclaw-start"]
